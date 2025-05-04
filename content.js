@@ -14,9 +14,8 @@ function startVideo(cameraId) {
       currentStream = stream;
       videoElement = document.createElement("video");
       videoElement.style.width = "200px";
-      videoElement.style.height = "200px";
-      videoElement.style.objectFit = "cover";
-      videoElement.style.borderRadius = "50%";
+      videoElement.style.height = "auto";
+      videoElement.style.objectFit = "contain";
       videoElement.style.position = "fixed";
       videoElement.style.bottom = "10px";
       videoElement.style.right = "10px";
@@ -67,3 +66,5 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     stopVideo();
   }
 });
+
+// Looking for any CSS that might be applying a circular crop to the video
