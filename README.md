@@ -3,11 +3,11 @@
 This Chrome extension uses computer vision to track your body movements through a webcam and translate them into mouse controls within your browser. Move your cursor by moving your hand and perform clicks with simple gestures - no mouse required!
 
 Features:<br />
--**Control cursor with right hand movements** <br />
-- **Perform clicks by raising your left hand**<br />
--**Visual feedback with on-screen skeleton tracking**<br />
--**Toggle control on/off**<br />
--**Works within any browser tab**<br />
+**Control cursor with right hand movements** <br />
+**Perform clicks by raising your left hand**<br />
+**Visual feedback with on-screen skeleton tracking**<br />
+**Toggle control on/off**<br />
+**Works within any browser tab**<br />
 
 
 [![Build your custom AI model using contentable.ai](thumbnail.jpg)](https://www.youtube.com/watch?v=M6QJoCAxWe4)
