@@ -1,12 +1,19 @@
 {
   "manifest_version": 3,
-  "name": "Free Loom-like Extension",
+  "name": "Motion Control Extension",
   "version": "1.0",
-  "description": "Display camera video as a round blob",
-  "permissions": ["activeTab", "tabs", "scripting"],
-  "host_permissions": ["http://*/*", "https://*/*"],
-  "background": {
-    "service_worker": "background.js"
+  "description": "Control your browser with motion gestures",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
   },
   "content_scripts": [
     {
@@ -14,7 +21,10 @@
       "js": ["content.js"]
     }
   ],
-  "action": {
-    "default_popup": "popup.html"
-  }
+  "web_accessible_resources": [
+    {
+      "resources": ["overlay.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }

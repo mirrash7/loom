@@ -67,4 +67,53 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
 });
 
+// Listen for messages from popup
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  if (request.action === 'toggleMotionControl') {
+    if (request.enabled) {
+      injectOverlayScript();
+    } else {
+      removeOverlay();
+    }
+  }
+});
+
+function injectOverlayScript() {
+  // Check if already injected
+  if (document.getElementById('motion-control-overlay')) {
+    return;
+  }
+  
+  // Create overlay container
+  const overlay = document.createElement('div');
+  overlay.id = 'motion-control-overlay';
+  overlay.style.position = 'fixed';
+  overlay.style.top = '10px';
+  overlay.style.right = '10px';
+  overlay.style.zIndex = '9999';
+  overlay.style.background = 'rgba(0,0,0,0.5)';
+  overlay.style.padding = '5px';
+  overlay.style.borderRadius = '5px';
+  overlay.style.color = 'white';
+  overlay.innerHTML = 'Motion Control Active';
+  document.body.appendChild(overlay);
+  
+  // Inject the motion control script
+  const script = document.createElement('script');
+  script.src = chrome.runtime.getURL('overlay.js');
+  script.id = 'motion-control-script';
+  document.body.appendChild(script);
+}
+
+function removeOverlay() {
+  const overlay = document.getElementById('motion-control-overlay');
+  const script = document.getElementById('motion-control-script');
+  
+  if (overlay) overlay.remove();
+  if (script) script.remove();
+  
+  // Send message to stop webcam if it's running
+  window.postMessage({action: 'stopMotionControl'}, '*');
+}
+
 // Looking for any CSS that might be applying a circular crop to the video

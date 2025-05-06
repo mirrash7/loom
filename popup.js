@@ -28,3 +28,28 @@ document.getElementById("stopVideo").addEventListener("click", () => {
     chrome.tabs.sendMessage(tabId, { action: "stopVideo" });
   });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleButton = document.getElementById('toggleMotionControl');
+  
+  // Check current state from storage
+  chrome.storage.local.get(['motionControlEnabled'], function(result) {
+    toggleButton.checked = result.motionControlEnabled || false;
+  });
+  
+  // Toggle motion control
+  toggleButton.addEventListener('change', function() {
+    const isEnabled = toggleButton.checked;
+    
+    // Save state to storage
+    chrome.storage.local.set({motionControlEnabled: isEnabled});
+    
+    // Send message to content script
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, {
+        action: 'toggleMotionControl',
+        enabled: isEnabled
+      });
+    });
+  });
+});
