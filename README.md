@@ -1,7 +1,13 @@
-# Free Loom-like Alternative
+# Motion Control Browser Extension
 
-An intuitive Chrome extension that provides a draggable webcam feed on your browser, similar to Loom, but with a twist. Easily start, stop, and move your video feed around your browser window.
-Here's how it looks:
+This Chrome extension uses computer vision to track your body movements through a webcam and translate them into mouse controls within your browser. Move your cursor by moving your hand and perform clicks with simple gestures - no mouse required!
+
+Features:
+-**Control cursor with right hand movements
+-Perform clicks by raising your left hand
+-Visual feedback with on-screen skeleton tracking
+-Toggle control on/off
+-Works within any browser tab**
 
 
 [![Build your custom AI model using contentable.ai](thumbnail.jpg)](https://www.youtube.com/watch?v=M6QJoCAxWe4)
