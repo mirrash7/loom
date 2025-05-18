@@ -9,8 +9,7 @@ Features:<br />
 **Toggle control on/off**<br />
 **Works within any browser tab**<br />
 
-
-[![Build your custom AI model using contentable.ai](thumbnail.jpg)](https://www.youtube.com/watch?v=M6QJoCAxWe4)
+![Screen Recording 2025-05-17 182003 - frame at 0m3s](https://github.com/user-attachments/assets/82289ec9-57f6-441a-95a0-c16e3685ff46)
 
 
 ## Features
