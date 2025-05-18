@@ -1,4 +1,4 @@
-# Motion Control Browser Extension
+# Motion Mouse Control Extension
 
 This Chrome extension uses computer vision to track your body movements through a webcam and translate them into mouse controls within your browser. Move your cursor by moving your hand and perform clicks with simple gestures - no mouse required!
 
